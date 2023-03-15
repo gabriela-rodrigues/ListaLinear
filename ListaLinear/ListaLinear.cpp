@@ -27,7 +27,7 @@ void menu()
 {
 	int op = 0;
 	while (op != 7) {
-		system("cls"); // somente no windows
+		system("cls"); 
 		cout << "Menu Lista Linear";
 		cout << endl << endl;
 		cout << "1 - Inicializar Lista \n";
@@ -62,7 +62,7 @@ void menu()
 			break;
 		}
 
-		system("pause"); // somente no windows
+		system("pause"); 
 	}
 }
 
@@ -121,8 +121,24 @@ void inserirElemento()
 
 void excluirElemento()
 {
+	int valor;
+	cout << "Digite o elemento que deseja excluir: ";
+	cin >> valor;
 
-
+	int pos = posicaoElemento(valor);
+	if (pos == -1)
+	{
+		cout << "Elemento não encontrado\n";
+	}
+	else
+	{
+		for (int i = pos; i < nElementos - 1; i++)
+		{
+			lista[i] = lista[i + 1];
+		}
+		nElementos--;
+		cout << "Elemento excluído\n";
+	}
 }
 
 void buscarElemento()
